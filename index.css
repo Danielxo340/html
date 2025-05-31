@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 4%; /* #0a0a0a */
+  --foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 98%;
+  --card: 0 0% 10%; /* #1a1a1a */
+  --card-foreground: 0 0% 98%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --primary: 43 74% 49%; /* #d4af37 - gold */
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 43 74% 49%;
+  --radius: 0.5rem;
+  --gold: 43 74% 49%; /* #d4af37 */
+  --bronze: 30 52% 55%; /* #cd853f */
+  --charcoal: 0 0% 10%; /* #1a1a1a */
+  --deep-black: 0 0% 4%; /* #0a0a0a */
+}
+
+.dark {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 98%;
+  --card: 0 0% 10%;
+  --card-foreground: 0 0% 98%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+  --primary: 43 74% 49%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 15%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 0 0% 15%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 43 74% 49%;
+  --radius: 0.5rem;
+  --gold: 43 74% 49%;
+  --bronze: 30 52% 55%;
+  --charcoal: 0 0% 10%;
+  --deep-black: 0 0% 4%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-inter antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .ornament {
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    height: 1px;
+    position: relative;
+  }
+  
+  .ornament::before {
+    content: '◊';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: hsl(var(--gold));
+    font-size: 16px;
+  }
+  
+  .game-card {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .game-card:hover {
+    border-color: hsl(var(--gold));
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    transform: translateY(-5px);
+  }
+  
+  .atmospheric-bg {
+    background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(205, 133, 63, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, hsl(var(--deep-black)) 0%, hsl(var(--charcoal)) 100%);
+  }
+  
+  .nav-item {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(var(--gold));
+    transition: width 0.3s ease;
+  }
+  
+  .nav-item:hover::after {
+    width: 100%;
+  }
+  
+  .tab-active {
+    color: hsl(var(--gold));
+    position: relative;
+  }
+  
+  .tab-active::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: hsl(var(--gold));
+  }
+}
